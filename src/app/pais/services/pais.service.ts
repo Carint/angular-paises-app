@@ -15,9 +15,28 @@ export class PaisService {
     private http: HttpClient
   ) { }
 
+  // Método que retorna un arreglo de paises por el termino de busqueda
   buscarPais(termino: string): Observable<Country[]> {
     // Construcción de la URL
-    const url = `${this._apiUrl}/name/${termino}`
+    const url = `${this._apiUrl}/name/${termino}`;
+    
     return this.http.get<Country[]>(url);
   }
+
+  // Método que retorna un objeto de pais por el codigo alpha de pais
+  buscarPaisPorAlpha( id: string ): Observable<Country> {
+    // Construcción de la URL
+    const url = `${this._apiUrl}/alpha/${ id }`;
+    
+    return this.http.get<Country>(url);
+  }
+  
+  // Método que retorna un arreglo de paises por el termino de busqueda
+  buscarCapital( termino: string ): Observable<Country[]> {
+    // Construcción de la URL
+    const url = `${this._apiUrl}/capital/${termino}`;
+
+    return this.http.get<Country[]>(url);
+  }
+
 }

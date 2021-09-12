@@ -19,14 +19,15 @@ export class PorPaisComponent {
     private paisService: PaisService
   ) { }
 
-  buscar() {
+  buscar( termino: string ) {
     this.hayError = false;
+    this.termino = termino;
 
     if(this.termino != ''){
       this.paisService.buscarPais(this.termino)
         .subscribe( ( paises ) => {
           this.paises = paises;
-          console.log(this.paises);
+          // console.log(this.paises);
         }, (err) => {
           this.hayError = true;
           this.paises = [];
@@ -34,6 +35,12 @@ export class PorPaisComponent {
     }
       
     // this.termino = '';
+  }
+
+  sugerencias( termino: string ) {
+    this.hayError = false;
+
+    // TODO: Crear sugerencias
   }
 
 }
