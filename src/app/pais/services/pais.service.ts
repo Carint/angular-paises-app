@@ -39,4 +39,12 @@ export class PaisService {
     return this.http.get<Country[]>(url);
   }
 
+  // Método que retorna una arreglo de paises por region
+  buscarRegion( region: string ): Observable<Country[]> {
+    // Construcción de la URL
+    const url = `${this._apiUrl}/region/${region}`;
+
+    return this.http.get<Country[]>(url);
+  }
+
 }

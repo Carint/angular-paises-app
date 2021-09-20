@@ -13,6 +13,8 @@ import { PaisService } from '../../services/pais.service';
 export class PorCapitalComponent {
   termino: string = '';
   hayError: boolean = false;
+
+  // Propiedad de consulta al servicio de paises
   paises: Country[] = [];
 
   constructor(
@@ -20,7 +22,8 @@ export class PorCapitalComponent {
   ) { }
 
   buscar( termino: string ) {
-    this.hayError = false;this.termino = termino;
+    this.hayError = false;
+    this.termino = termino;
 
     if(this.termino != ''){
       this.paisService.buscarCapital(this.termino)
